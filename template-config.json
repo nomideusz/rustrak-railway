@@ -1,0 +1,75 @@
+{
+  "services": {
+    "a632ea13-e47e-45e4-b0bb-6a5612f71ca1": {
+      "icon": "https://raw.githubusercontent.com/nomideusz/rustrak-railway/main/icon.png",
+      "name": "Rustrak",
+      "build": {},
+      "deploy": {
+        "startCommand": null,
+        "healthcheckPath": "/health/ready",
+        "restartPolicyType": "ON_FAILURE",
+        "restartPolicyMaxRetries": 10
+      },
+      "source": {
+        "image": "rustrak/rustrak-server:v0.16.3"
+      },
+      "networking": {
+        "serviceDomains": {
+          "<hasDomain>": {}
+        }
+      },
+      "volumeMounts": {
+        "f7f1bcb4-d09d-4780-9f6e-d8d2a7aa07d3": {
+          "mountPath": "/data"
+        }
+      },
+      "variables": {
+        "RUSTRAK_ADMIN_EMAIL": {
+          "defaultValue": "",
+          "description": "Email you sign in with - the admin account is created on first boot",
+          "isOptional": false
+        },
+        "RUSTRAK_ADMIN_PASSWORD": {
+          "defaultValue": "${{secret(24)}}",
+          "description": "Admin password, used on first boot only - change it later in the dashboard",
+          "isOptional": false
+        },
+        "CREATE_SUPERUSER": {
+          "defaultValue": "${{RUSTRAK_ADMIN_EMAIL}}:${{RUSTRAK_ADMIN_PASSWORD}}",
+          "description": "Creates the admin on first boot - leave as is",
+          "isOptional": false
+        },
+        "SESSION_SECRET_KEY": {
+          "defaultValue": "${{secret(64)}}",
+          "description": "Signs and encrypts login cookies (64+ characters)",
+          "isOptional": false
+        },
+        "PUBLIC_URL": {
+          "defaultValue": "https://${{RAILWAY_PUBLIC_DOMAIN}}",
+          "description": "Address the DSNs point at - set it to your custom domain after adding one",
+          "isOptional": false
+        },
+        "SSL_PROXY": {
+          "defaultValue": "true",
+          "description": "Railway serves HTTPS, so login cookies are marked secure",
+          "isOptional": false
+        },
+        "HOST": {
+          "defaultValue": "::",
+          "description": "Listen on IPv6 and IPv4 so other services can report over the private network",
+          "isOptional": false
+        },
+        "PORT": {
+          "defaultValue": "8080",
+          "description": "Port Railway routes to - leave as is",
+          "isOptional": false
+        },
+        "RAILWAY_RUN_UID": {
+          "defaultValue": "0",
+          "description": "Run as root so Rustrak can write to the Railway volume",
+          "isOptional": false
+        }
+      }
+    }
+  }
+}
