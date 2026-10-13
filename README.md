@@ -44,13 +44,13 @@ Every official Sentry SDK works the same way (JavaScript, Python, Go, Ruby, PHP,
 
 **Report over the private network.** For an app in the same Railway project, swap the DSN's host for the private one and use plain http on port 8080: `http://<key>@${{Rustrak.RAILWAY_PRIVATE_DOMAIN}}:8080/1`. That traffic never leaves Railway, and it's not billed as egress.
 
-**Teammates.** Settings → Team → invite, then copy the invite link and send it yourself. No email server is needed.
+**Teammates.** In Settings → Team, enter their email and press Invite. The invite link is copied to your clipboard; send it to them yourself. No email server is needed.
 
 **Alerts.** Each project can alert on new or regressed issues through a webhook or Slack. Email alerts need `SMTP_HOST`, `SMTP_PORT`, `SMTP_USERNAME`, `SMTP_PASSWORD` and `SMTP_FROM`; Railway allows outbound SMTP on the Pro plan only.
 
 **Custom domain.** After adding one, set `PUBLIC_URL` to `https://your.domain` and redeploy, so new DSNs use it.
 
-**Memory.** Rustrak idles at about 30 MB. It accepts events by writing them to disk first and processing them in the background, so a burst of errors doesn't slow your app down.
+**Memory.** Rustrak idles at about 60 MB. It accepts events by writing them to disk first and processing them in the background, so a burst of errors doesn't slow your app down.
 
 **Telemetry.** Upstream Rustrak sends anonymous usage telemetry. Add `RUSTRAK_TELEMETRY=off` to turn it off.
 
