@@ -1,7 +1,7 @@
 {
   "services": {
     "a632ea13-e47e-45e4-b0bb-6a5612f71ca1": {
-      "icon": "https://raw.githubusercontent.com/nomideusz/rustrak-railway/main/icon.png",
+      "icon": "https://raw.githubusercontent.com/two-workspaces/rustrak/main/icon.png",
       "name": "Rustrak",
       "build": {},
       "deploy": {

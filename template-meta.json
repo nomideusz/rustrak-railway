@@ -3,7 +3,7 @@
   "short_name": "Rustrak",
   "description": "Sentry-SDK error tracking, logs and traces in one ~60 MB Rust process",
   "category": "Observability",
-  "image": "https://raw.githubusercontent.com/nomideusz/rustrak-railway/main/icon.png",
+  "image": "https://raw.githubusercontent.com/two-workspaces/rustrak/main/icon.png",
   "card_desc": "Rustrak: self-hosted error tracking that speaks the Sentry protocol. Point any Sentry SDK at it by changing the DSN, and get issues, logs, transactions and release health from one small Rust process on SQLite.",
   "deploy_marker": "rustrak/rustrak-server:v0.16.3",
   "id": "95ca7d18-e65f-48a1-a3e4-5334a99c2c5f",

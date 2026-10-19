@@ -27,7 +27,7 @@ It's one service and a Railway volume.
 
 - [Rustrak documentation](https://rustrak.github.io/rustrak/)
 - [Rustrak on GitHub](https://github.com/rustrak/rustrak)
-- [Template source on GitHub](https://github.com/nomideusz/rustrak-railway)
+- [Template source on GitHub](https://github.com/two-workspaces/rustrak)
 
 ### Implementation Details
 
